@@ -15,3 +15,9 @@ Thumbs.db
 
 # Node（如果以后引入构建工具）
 node_modules/
+
+# 原始 jpg 备份（不推到仓库）
+仓库/images/gallery/_original/
+
+# 原始 jpg 备份 (不部署)
+assets/images/gallery/_original/
