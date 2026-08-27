@@ -111,46 +111,62 @@
                 <form id="contact-form" novalidate>
                     <!-- Honeypot: bots fill hidden fields, real users won't. -->
                     <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
-                    <div style="background:#fff7e6;border-left:4px solid #f5c842;padding:12px 16px;border-radius:6px;margin-bottom:24px;font-size:14px;color:#665c1e">
-                      ⚡ <strong>Quick quote in 60 seconds.</strong> Just 6 fields below — we'll follow up with full specs and CIF pricing.
-                    </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label>Full Name <span class="req">*</span></label>
                             <input type="text" name="name" required>
                         </div>
                         <div class="form-group">
+                            <label>Company</label>
+                            <input type="text" name="company">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email <span class="req">*</span></label>
+                            <input type="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp / Phone</label>
+                            <input type="tel" name="phone" placeholder="+country code">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
                             <label>Country <span class="req">*</span></label>
-                            <input type="text" name="country" required placeholder="e.g. Tanzania">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>WhatsApp <span class="req">*</span></label>
-                            <input type="tel" name="phone" required placeholder="+country code">
+                            <input type="text" name="country" required>
                         </div>
                         <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" name="email" placeholder="optional">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Truck Model Needed <span class="req">*</span></label>
+                            <label>Truck Model <span class="req">*</span></label>
                             <select name="model" required>
                                 <option value="">Select series</option>
                                 <option>F Series — Dump Truck</option>
                                 <option>H3000 — Tanker / Cargo</option>
                                 <option>L3000 — Medium Cargo</option>
                                 <option>X3000 — Premium Tractor</option>
-                                <option>Mixed fleet / Not sure</option>
+                                <option>Not sure / Mixed fleet</option>
                             </select>
                         </div>
+                    </div>
+                    <div class="form-row">
                         <div class="form-group">
                             <label>Quantity <span class="req">*</span></label>
                             <input type="number" name="quantity" min="1" placeholder="e.g. 5" required>
                         </div>
+                        <div class="form-group">
+                            <label>Preferred Term</label>
+                            <select name="term">
+                                <option>EXW (Ex-Works)</option>
+                                <option>FOB (Free on Board)</option>
+                                <option>CIF (Cost, Insurance &amp; Freight)</option>
+                                <option>DDP (Delivered Duty Paid)</option>
+                                <option>Need consultation</option>
+                            </select>
+                        </div>
                     </div>
+                    <div class="form-group">
+                        <label>Message / Special Requirements</label>
+                        <textarea name="message" placeholder="Body type, payload, route, delivery timeline, etc."></textarea>
                     </div>
                     <div class="form-submit">
                         <button type="submit" class="btn btn-primary">📨 Send Inquiry</button>
@@ -207,134 +223,248 @@
     </div>
 </footer>
 
-<a href="https://wa.me/8619992988805?text=Hello%2C%20I%27m%20interested%20in%20SHACMAN%20trucks" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><span class="wa-icon">💬</span><span class="wa-label">Chat on WhatsApp</span></a>
+<a href="https://wa.me/8619992988805?text=Hello%2C%20I%27m%20interested%20in%20SHACMAN%20trucks" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
 
 <script src="assets/js/main.js"></script>
 
 <script>
-  // Yu Truck Export - 表单跳 WhatsApp（不依赖任何后端）
-  // 客户填表 → 直接跳 wa.me 带预填消息
-  (function() {
-    const form = document.getElementById("contact-form");
-    if (!form) return;
+  // Yu Truck Export - 表单不跳 WhatsApp（成功页 + 主动按钮）
+  (
+function(
+) {
+    const form = document.getElementById("contact-form"
+);
+    if (!form) return
+;
 
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
+    form.
+addEventListener("submit", function(e
+) {
+      e.
+preventDefault
+();
 
-      const data = {
-        name: form.name.value.trim(),
-        company: form.company.value.trim(),
-        email: form.email.value.trim(),
-        phone: form.phone.value.trim(),
-        country: form.country.value.trim(),
-        model: form.model.value,
-        quantity: form.quantity.value.trim(),
-        term: form.term.value,
-        message: form.message.value.trim()
+      const
+ data = {
+        name: form.name.value.trim
+(),
+        company: form.company.value.trim
+(),
+        email: form.email.value.trim
+(),
+        phone: form.phone.value.trim
+(),
+        country: form.country.value.trim
+(),
+        model: form.model.value
+,
+        quantity: form.quantity.value.trim
+(),
+        term: form.term.value
+,
+        message: form.message.value.trim
+()
       };
 
-      // 简单校验
-      if (!data.name || !data.email || !data.country || !data.model || !data.quantity) {
-        const st = form.querySelector(".form-status");
-        st.className = "form-status error";
-        st.textContent = "请填写所有必填项 / Please fill all required fields";
-        return;
+      if (!data.name || !data.email || !data.country || !data.model || !data.quantity
+) {
+        const st = form.querySelector(".form-status"
+);
+        st.
+className = "form-status error"
+;
+        st.
+textContent = "请填写所有必填项 / Please fill all required fields"
+;
+        return
+;
       }
 
-      // 存到 localStorage（本地备份）
-      try {
-        const key = "yutruck_inquiries";
-        const list = JSON.parse(localStorage.getItem(key) || "[]");
-        list.push({ ...data, sent_at: new Date().toISOString() });
-        localStorage.setItem(key, JSON.stringify(list));
-      } catch(err) {}
+      try
+ {
+        const key = "yutruck_inquiries"
+;
+        const list = JSON.parse(localStorage.getItem(key) || "[]"
+);
+        list.
+push({ ...data, sent_at: new Date().toISOString
+() });
+        localStorage.setItem(key, JSON.stringify
+(list));
+      } 
+catch
+(err) {}
 
-      // 发送到 Worker 后端 (邮件 + D1)
-      // 不强制跳 WhatsApp —— 由用户主动选择
-      const submitBtn = form.querySelector("button[type=\"submit\"]");
-      const originalBtnText = submitBtn ? submitBtn.innerHTML : null;
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = "⏳ Sending…";
+      const submitBtn = form.querySelector("button[type=\"submit\"]"
+);
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : null
+;
+      if
+ (submitBtn) {
+        submitBtn.
+disabled = true
+;
+        submitBtn.
+innerHTML = "⏳ Sending…"
+;
       }
 
-      fetch("https://yu-truck-export-api.weny47397.workers.dev/api/inquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+      fetch("https://yu-truck-export-api.weny47397.workers.dev/api/inquiry"
+, {
+        method: "POST"
+,
+        headers: { "Content-Type": "application/json"
+ },
+        body: JSON.stringify
+(data),
         mode: "cors"
       })
-      .then(function(resp) { return resp.json().then(function(j) { return { ok: resp.ok, body: j }; }); })
-      .then(function(r) {
-        // 成功：显示成功状态 + 2 个主动按钮
-        const st = form.querySelector(".form-status");
-        st.className = "form-status success";
-        const inquiryId = r.body && r.body.id ? ("#" + r.body.id) : "";
-        const text = [
-          "Hi Yu, I have an inquiry from yutruckexport.com 👋",
-          "",
-          "👤 Name: " + data.name,
-          data.company ? "🏢 Company: " + data.company : "",
-          "📧 Email: " + data.email,
-          data.phone ? "📱 WhatsApp: " + data.phone : "",
-          "🌍 Country: " + data.country,
-          "🚛 Truck: " + data.model,
-          "📦 Quantity: " + data.quantity,
-          data.term ? "💼 Term: " + data.term : "",
-          data.message ? "\n📝 Message:\n" + data.message : ""
-        ].filter(Boolean).join("\n");
-        const waUrl = "https://wa.me/8619992988805?text=" + encodeURIComponent(text);
-        st.innerHTML =
-          '<div style="padding:18px;background:#e8f7ee;border:1px solid #2eaa5d;border-radius:8px;margin:16px 0">' +
-            '<div style="font-size:18px;font-weight:600;color:#1f7a3e;margin-bottom:6px">✅ Inquiry received ' + inquiryId + '</div>' +
-            '<div style="color:#444;margin-bottom:14px">Thanks for your inquiry. We will reply within 24 hours via email. If you prefer WhatsApp, tap the button below.</div>' +
-            '<a href="' + waUrl + '" target="_blank" rel="noopener" ' +
-               'style="display:inline-block;background:#25D366;color:#fff;padding:11px 22px;border-radius:6px;font-weight:600;text-decoration:none;margin-right:8px">' +
-              '📱 Continue on WhatsApp' +
-            '</a>' +
-            '<a href="mailto:weny47397@gmail.com?subject=Re: ' + encodeURIComponent(data.model || 'Inquiry') + '" ' +
-               'style="display:inline-block;background:#1a1a2e;color:#fff;padding:11px 22px;border-radius:6px;font-weight:600;text-decoration:none">' +
-              '✉️ Email us directly' +
-            '</a>' +
-          '</div>';
-        form.reset();
-        if (submitBtn && originalBtnText !== null) {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalBtnText;
+ .
+then(function(resp) { return resp.json().then(function(j) { return { ok: resp.ok, body
+: j }; }); })
+      .
+then(function(r
+) {
+        const st = form.querySelector(".form-status"
+);
+        st.
+className = "form-status success"
+;
+        const inquiryId = r.body && r.body.id ? ("#" + r.body.id) : ""
+;
+        const
+ text = [
+          "Hi Yu, I have an inquiry from yutruckexport.com 👋"
+,
+          ""
+,
+          "👤 Name: " + data.name
+,
+          data.
+company ? "🏢 Company: " + data.company : ""
+,
+          "📧 Email: " + data.email
+,
+          data.
+phone ? "📱 WhatsApp: " + data.phone : ""
+,
+          "🌍 Country: " + data.country
+,
+          "🚛 Truck: " + data.model
+,
+          "📦 Quantity: " + data.quantity
+,
+          data.
+term ? "💼 Term: " + data.term : ""
+,
+          data.
+message ? "\n📝 Message:\n" + data.message : ""
+        ].
+filter(Boolean).join("\n"
+);
+        const waUrl = "https://wa.me/8619992988805?text=" + encodeURIComponent
+(text);
+        st.
+innerHTML
+ =
+          '<div style="padding:18px;background:#e8f7ee;border:1px solid #2eaa5d;border-radius:8px;margin:16px 0">'
+ +
+            '<div style="font-size:18px;font-weight:600;color:#1f7a3e;margin-bottom:6px">✅ Inquiry received ' + inquiryId + '</div>'
+ +
+            '<div style="color:#444;margin-bottom:14px">Thanks for your inquiry. We will reply within 24 hours via email. If you prefer WhatsApp, tap the button below.</div>'
+ +
+            '<a href="' + waUrl + '" target="_blank" rel="noopener" '
+ +
+               'style="display:inline-block;background:#25D366;color:#fff;padding:11px 22px;border-radius:6px;font-weight:600;text-decoration:none;margin-right:8px">'
+ +
+              '📱 Continue on WhatsApp'
+ +
+            '</a>'
+ +
+            '<a href="mailto:weny47397@gmail.com?subject=Re: ' + encodeURIComponent(data.model || 'Inquiry') + '" '
+ +
+               'style="display:inline-block;background:#1a1a2e;color:#fff;padding:11px 22px;border-radius:6px;font-weight:600;text-decoration:none">'
+ +
+              '✉️ Email us directly'
+ +
+            '</a>'
+ +
+          '</div>'
+;
+        form.
+reset
+();
+        if (submitBtn && originalBtnText !== null
+) {
+          submitBtn.
+disabled = false
+;
+          submitBtn.
+innerHTML
+ = originalBtnText;
         }
       })
-      .catch(function(err) {
-        // 后端失败：仍显示手动联系信息，不阻断用户
-        const st = form.querySelector(".form-status");
-        st.className = "form-status error";
-        st.innerHTML =
-          '<div style="padding:16px;background:#fff3cd;border:1px solid #f0c040;border-radius:8px;margin:16px 0;color:#665c1e">' +
-            '⚠️ Auto-send failed. Please contact us directly:<br><br>' +
-            '<a href="mailto:weny47397@gmail.com" style="color:#1f7a3e;font-weight:600">weny47397@gmail.com</a>' +
-            ' · <a href="https://wa.me/8619992988805" target="_blank" style="color:#25D366;font-weight:600">WhatsApp +86 199 9298 8805</a>' +
-          '</div>';
-        if (submitBtn && originalBtnText !== null) {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalBtnText;
+      .
+catch(function(err
+) {
+        const st = form.querySelector(".form-status"
+);
+        st.
+className = "form-status error"
+;
+        st.
+innerHTML
+ =
+          '<div style="padding:16px;background:#fff3cd;border:1px solid #f0c040;border-radius:8px;margin:16px 0;color:#665c1e">'
+ +
+            '⚠️ Auto-send failed. Please contact us directly:<br><br>'
+ +
+            '<a href="mailto:weny47397@gmail.com" style="color:#1f7a3e;font-weight:600">weny47397@gmail.com</a>'
+ +
+            ' · <a href="https://wa.me/8619992988805" target="_blank" style="color:#25D366;font-weight:600">WhatsApp +86 199 9298 8805</a>'
+ +
+          '</div>'
+;
+        if (submitBtn && originalBtnText !== null
+) {
+          submitBtn.
+disabled = false
+;
+          submitBtn.
+innerHTML
+ = originalBtnText;
         }
-        console.error("Inquiry submit failed:", err);
+        console.error("Inquiry submit failed:"
+, err);
       });
     });
 
-    // URL ?subject= 自动填
-    const params = new URLSearchParams(window.location.search);
-    const subject = params.get("subject");
-    if (subject) {
-      const sel = form.querySelector("select[name=\"model\"]");
-      if (sel) {
+    // URL ?subject= 自动填（保留）
+    const params = new URLSearchParams(window.location.search
+);
+    const subject = params.get("subject"
+);
+    if
+ (subject) {
+      const sel = form.querySelector("select[name=\"model\"]"
+);
+      if
+ (sel) {
         const opt = Array.from(sel.options).find(o =>
-          o.text.toLowerCase().includes(subject.toLowerCase().split(" ")[0])
+          o.
+text.toLowerCase().includes(subject.toLowerCase().split(" ")[0
+])
         );
-        if (opt) sel.value = opt.value;
+        if (opt) sel.value = opt.value
+;
       }
-      const msg = form.querySelector("textarea[name=\"message\"]");
-      if (msg && !msg.value) {
-        msg.value = "Hi Yu, interested in the " + subject + ". Please send specs and CIF pricing for my country. Thanks.";
+      const msg = form.querySelector("textarea[name=\"message\"]"
+);
+      if (msg && !msg.value
+) {
+        msg.
+value = "Hi Yu, interested in the " + subject + ". Please send specs and CIF pricing for my country. Thanks."
+;
       }
     }
   })();
