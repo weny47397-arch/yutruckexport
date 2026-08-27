@@ -268,7 +268,7 @@
       // 异步发送到 Worker 后端（不阻塞 WhatsApp 跳转）
       // 失败也不影响用户——WhatsApp 是主路径
       try {
-        fetch("https://api.yutruckexport.com/api/inquiry", {
+        fetch("https://yu-truck-export-api.weny47397.workers.dev/api/inquiry", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
