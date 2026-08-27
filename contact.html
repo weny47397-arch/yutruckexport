@@ -291,11 +291,8 @@
         "🚛 Truck: " + data.model,
         "📦 Quantity: " + data.quantity,
         data.term ? "💼 Term: " + data.term : "",
-        data.message ? "
-📝 Message:
-" + data.message : ""
-      ].filter(Boolean).join("
-");
+        data.message ? "\n📝 Message:\n" + data.message : ""
+      ].filter(Boolean).join("\n");
 
       // 跳 WhatsApp
       const url = "https://wa.me/8619992988805?text=" + encodeURIComponent(text);
