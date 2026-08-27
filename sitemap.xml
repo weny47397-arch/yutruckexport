@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>/index.html</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
-  <url><loc>/products.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
-  <url><loc>/products/f-series.html</loc><priority>0.85</priority><changefreq>weekly</changefreq></url>
-  <url><loc>/products/h3000.html</loc><priority>0.85</priority><changefreq>weekly</changefreq></url>
-  <url><loc>/products/l3000.html</loc><priority>0.85</priority><changefreq>weekly</changefreq></url>
-  <url><loc>/products/x3000.html</loc><priority>0.85</priority><changefreq>weekly</changefreq></url>
-  <url><loc>/about.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>/contact.html</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yutruckexport.com/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://yutruckexport.com/products.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://yutruckexport.com/products/f-series.html</loc><priority>0.85</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://yutruckexport.com/products/h3000.html</loc><priority>0.85</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://yutruckexport.com/products/l3000.html</loc><priority>0.85</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://yutruckexport.com/products/x3000.html</loc><priority>0.85</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://yutruckexport.com/shacman-trucks-tanzania.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yutruckexport.com/shacman-trucks-zambia.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yutruckexport.com/shacman-trucks-kenya.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yutruckexport.com/shacman-trucks-cameroon.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yutruckexport.com/shacman-trucks-ghana.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yutruckexport.com/shacman-trucks-nigeria.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yutruckexport.com/shacman-trucks-drc.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yutruckexport.com/shacman-trucks-uganda.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yutruckexport.com/about.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yutruckexport.com/contact.html</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
 </urlset>

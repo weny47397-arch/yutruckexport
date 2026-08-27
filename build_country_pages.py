@@ -1,0 +1,279 @@
+#!/usr/bin/env python3
+"""Build 8 country pages for SHACMAN trucks Africa markets."""
+
+COUNTRIES = [
+    {
+        "slug": "tanzania",
+        "name": "Tanzania",
+        "flag": "🇹🇿",
+        "port": "Dar es Salaam",
+        "context": "the East African logistics hub. Container haulage from Dar es Salaam port to landlocked neighbours (DRC, Rwanda, Burundi, Uganda) is one of the busiest corridors in East Africa.",
+        "apps": "Container haulage from port, long-distance freight to DRC and Zambia, mining supply to Geita and Bulyanhulu gold mines, public works projects.",
+    },
+    {
+        "slug": "zambia",
+        "name": "Zambia",
+        "flag": "🇿🇲",
+        "port": "Dar es Salaam / Walvis Bay",
+        "context": "the Copper Belt. SHACMAN trucks are widely used in Zambia's copper mining industry and on the Lobito corridor linking the DRC and Angola.",
+        "apps": "Copper and cobalt haulage from the Copper Belt, cross-border logistics via the Walvis Bay corridor, heavy-duty mining dump operations, road construction projects.",
+    },
+    {
+        "slug": "kenya",
+        "name": "Kenya",
+        "flag": "🇰🇪",
+        "port": "Mombasa",
+        "context": "the regional logistics centre for East Africa. Mombasa port serves Kenya, Uganda, Rwanda, South Sudan, and eastern DRC.",
+        "apps": "Container haulage from Mombasa port, cross-border logistics to Uganda and Rwanda, cement and construction material transport, agricultural produce to port.",
+    },
+    {
+        "slug": "cameroon",
+        "name": "Cameroon",
+        "flag": "🇨🇲",
+        "port": "Douala",
+        "context": "the gateway to Central Africa. Douala port serves Cameroon, Chad, Central African Republic, and northern Republic of Congo.",
+        "apps": "Container haulage from Douala port, hydrocarbon transport to Chad corridor, timber and agricultural logistics, public infrastructure projects.",
+    },
+    {
+        "slug": "ghana",
+        "name": "Ghana",
+        "flag": "🇬🇭",
+        "port": "Tema",
+        "context": "a stable West African market with active mining (gold, bauxite, manganese) and a well-developed port at Tema serving landlocked Burkina Faso and Mali.",
+        "apps": "Mining haulage (gold, bauxite, manganese), container haulage from Tema port, agricultural logistics (cocoa, timber), construction material transport.",
+    },
+    {
+        "slug": "nigeria",
+        "name": "Nigeria",
+        "flag": "🇳🇬",
+        "port": "Lagos / Onne",
+        "context": "the largest economy in Africa. Lagos is the commercial hub, Onne port serves the oil-producing south-east. Heavy construction and oil & gas drive truck demand.",
+        "apps": "Heavy construction in Lagos and Abuja, oil & gas field logistics in the Niger Delta, interstate haulage across the country, container distribution from Lagos and Onne ports.",
+    },
+    {
+        "slug": "drc",
+        "name": "DR Congo",
+        "flag": "🇨🇩",
+        "port": "Matadi / Dar es Salaam",
+        "context": "the largest country in Sub-Saharan Africa with vast mineral wealth. Copper and cobalt mining in Katanga, plus gold in the east, drive heavy truck demand.",
+        "apps": "Copper and cobalt haulage from Katanga province, gold mining logistics in Ituri and South Kivu, cross-border supply routes via Tanzania and Zambia ports, road construction in remote provinces.",
+    },
+    {
+        "slug": "uganda",
+        "name": "Uganda",
+        "flag": "🇺🇬",
+        "port": "Mombasa (Kenya) / Dar es Salaam (Tanzania)",
+        "context": "a landlocked East African country that depends on Mombasa and Dar es Salaam ports for imports. Cross-border trucking is a major industry.",
+        "apps": "Cross-border container haulage from Mombasa and Dar es Salaam ports, oil and petroleum distribution, agricultural produce collection, construction material transport.",
+    },
+]
+
+TEMPLATE = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHACMAN Trucks in {name} | YU Truck Export</title>
+    <meta name="description" content="SHACMAN trucks for {name}. {flag} Dump trucks, tractor trucks, cargo trucks and special trucks exported from China to {name}. Direct supply, factory-direct pricing. Chat with Yu on WhatsApp.">
+    <meta name="keywords" content="SHACMAN {name}, SHACMAN trucks {name}, dump truck {name}, tractor truck {name}, heavy truck {name}, SHACMAN export Africa, YU Truck Export">
+    <link rel="canonical" href="https://yutruckexport.com/shacman-trucks-{slug}.html">
+    <link rel="alternate" hreflang="en" href="https://yutruckexport.com/shacman-trucks-{slug}.html">
+    <meta property="og:title" content="SHACMAN Trucks in {name} | YU Truck Export">
+    <meta property="og:description" content="SHACMAN trucks exported from China to {name}. Direct supply from Yu, factory-direct pricing, WhatsApp real-time communication.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yutruckexport.com/shacman-trucks-{slug}.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23c8102e'/%3E%3Ctext x='50' y='62' font-size='50' font-weight='900' text-anchor='middle' fill='white' font-style='italic' font-family='sans-serif'%3ES%3C/text%3E%3C/svg%3E">
+    <script type="application/ld+json">
+    {{
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "SHACMAN Trucks in {name}",
+      "description": "SHACMAN heavy trucks exported from China to {name}.",
+      "url": "https://yutruckexport.com/shacman-trucks-{slug}.html",
+      "publisher": {{
+        "@type": "Organization",
+        "name": "YU Truck Export",
+        "url": "https://yutruckexport.com/"
+      }}
+    }}
+    </script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+    <div class="header-inner">
+        <a href="index.html" class="logo">
+            <span class="logo-mark">Y</span>
+            <span>
+                <span class="logo-text">YU TRUCK EXPORT</span><span class="logo-sub" style="display:block; font-size:11px; letter-spacing:1.5px; color:#666; margin-top:3px; font-weight:500;">SHACMAN</span>
+            </span>
+        </a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="index.html#africa-markets" class="active">Africa</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="header-cta">Get a Quote</a></li>
+            </ul>
+        </nav>
+        <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="min-height:480px">
+    <img class="hero-img" src="images/trucks/hero-h3000.jpg" alt="SHACMAN trucks for {name}" loading="eager">
+    <div class="hero-content">
+        <span class="hero-tag">{flag} {name}</span>
+        <h1>SHACMAN Trucks for {name}</h1>
+        <p class="hero-sub">Dump trucks, tractor trucks, cargo trucks and special trucks exported from China to {name}. Factory-direct supply, direct communication with Yu on WhatsApp.</p>
+        <div class="hero-actions">
+            <a href="https://wa.me/8619992988805?text=Hi%20Yu%2C%20I%27m%20in%20{name}%20and%20looking%20for%20SHACMAN%20trucks" class="btn btn-whatsapp" target="_blank" rel="noopener">💬 Chat with Yu</a>
+            <a href="contact.html" class="btn btn-outline">Request a Quote</a>
+        </div>
+    </div>
+</section>
+
+<!-- MARKET CONTEXT -->
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">{name} Market</span>
+            <h2>SHACMAN trucks for {name}</h2>
+            <p style="max-width:780px;margin:0 auto;font-size:17px">{name} is {context} Port of entry: <strong>{port}</strong>.</p>
+        </div>
+
+        <div style="background:#fff;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,0.06);padding:32px;margin-top:24px">
+            <h3 style="color:#1a1a2e;margin:0 0 16px;font-size:22px">Common applications in {name}</h3>
+            <p style="color:#555;font-size:15px;line-height:1.8;margin:0">{apps}</p>
+        </div>
+    </div>
+</section>
+
+<!-- RECOMMENDED TRUCKS -->
+<section class="section section-light" style="background:#f7f9fc">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Recommended Trucks</span>
+            <h2>SHACMAN trucks for {name}</h2>
+            <p>Commonly requested configurations for {name} customers.</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:32px">
+
+            <div style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08)">
+                <img src="images/trucks/shacman-f3000-6x4-highway.jpg" alt="SHACMAN F3000 dump truck" style="width:100%;height:200px;object-fit:cover" loading="lazy">
+                <div style="padding:20px">
+                    <div style="font-size:12px;color:#c8102e;font-weight:700;letter-spacing:1.5px;margin-bottom:6px">DUMP TRUCK</div>
+                    <h3 style="margin:0 0 8px;font-size:18px">SHACMAN F3000 6×4 Dump Truck</h3>
+                    <p style="color:#666;font-size:14px;margin:0 0 16px">Heavy-duty tipper for construction and mining. 30-ton payload, Cummins / Weichai engine.</p>
+                    <a href="products/f-series.html" style="color:#c8102e;text-decoration:none;font-weight:600;font-size:14px">View Details →</a>
+                </div>
+            </div>
+
+            <div style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08)">
+                <img src="images/trucks/shacman-x3000-6x4-tractor.jpg" alt="SHACMAN X3000 tractor truck" style="width:100%;height:200px;object-fit:cover" loading="lazy">
+                <div style="padding:20px">
+                    <div style="font-size:12px;color:#c8102e;font-weight:700;letter-spacing:1.5px;margin-bottom:6px">TRACTOR HEAD</div>
+                    <h3 style="margin:0 0 8px;font-size:18px">SHACMAN X3000 6×4 Tractor Head</h3>
+                    <p style="color:#666;font-size:14px;margin:0 0 16px">Long-haul flagship for port-to-destination logistics. Up to 550 hp.</p>
+                    <a href="products/x3000.html" style="color:#c8102e;text-decoration:none;font-weight:600;font-size:14px">View Details →</a>
+                </div>
+            </div>
+
+            <div style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08)">
+                <img src="images/trucks/shacman-l3000-6x4-cargo.jpg" alt="SHACMAN L3000 cargo truck" style="width:100%;height:200px;object-fit:cover" loading="lazy">
+                <div style="padding:20px">
+                    <div style="font-size:12px;color:#c8102e;font-weight:700;letter-spacing:1.5px;margin-bottom:6px">CARGO TRUCK</div>
+                    <h3 style="margin:0 0 8px;font-size:18px">SHACMAN L3000 6×4 Cargo Truck</h3>
+                    <p style="color:#666;font-size:14px;margin:0 0 16px">Medium-duty cargo carrier for distribution and regional logistics.</p>
+                    <a href="products/l3000.html" style="color:#c8102e;text-decoration:none;font-weight:600;font-size:14px">View Details →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="background:#1a1a2e;color:#fff;text-align:center">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow" style="color:#c8102e">Get a Quote</span>
+            <h2 style="color:#fff">Looking for SHACMAN trucks in {name}?</h2>
+            <p style="color:#ccc;max-width:680px;margin:0 auto">Send me the truck type, quantity and destination port ({port}). I will check available options and reply on WhatsApp.</p>
+        </div>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:24px">
+            <a href="https://wa.me/8619992988805?text=Hi%20Yu%2C%20I%27m%20in%20{name}%20and%20looking%20for%20SHACMAN%20trucks" class="btn btn-whatsapp" target="_blank" rel="noopener">💬 Chat with Yu on WhatsApp</a>
+            <a href="contact.html" class="btn btn-outline" style="border-color:#fff;color:#fff">Request a Quote</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">
+                    <span class="logo-mark">Y</span>YU TRUCK EXPORT</div>
+                <p class="footer-tagline">China heavy truck export supplier. SHACMAN trucks shipped from Chinese ports to {name} and other African markets.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="products.html#dump">Dump Trucks</a></li>
+                    <li><a href="products.html#tractor">Tractor Trucks</a></li>
+                    <li><a href="products.html#cargo">Cargo Trucks</a></li>
+                    <li><a href="products.html#special">Special Trucks</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Other Markets</h4>
+                <ul>
+                    <li><a href="shacman-trucks-tanzania.html">Tanzania</a></li>
+                    <li><a href="shacman-trucks-zambia.html">Zambia</a></li>
+                    <li><a href="shacman-trucks-kenya.html">Kenya</a></li>
+                    <li><a href="shacman-trucks-cameroon.html">Cameroon</a></li>
+                    <li><a href="shacman-trucks-ghana.html">Ghana</a></li>
+                    <li><a href="shacman-trucks-nigeria.html">Nigeria</a></li>
+                    <li><a href="shacman-trucks-drc.html">DR Congo</a></li>
+                    <li><a href="shacman-trucks-uganda.html">Uganda</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get in Touch</h4>
+                <ul>
+                    <li>💬 <a href="https://wa.me/8619992988805"><strong>+86 199 9298 8805</strong></a></li>
+                    <li>✉️ <a href="mailto:weny47397@gmail.com">weny47397@gmail.com</a></li>
+                    <li>📍 Xi'an, Shaanxi, China</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 SHAAN XI HAN OCEAN CO., LTD | All Rights Reserved
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/8619992988805?text=Hi%20Yu%2C%20I%27m%20looking%20for%20SHACMAN%20trucks" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><span class="wa-icon">💬</span><span class="wa-label">Chat on WhatsApp</span></a>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
+"""
+
+for c in COUNTRIES:
+    html = TEMPLATE.format(**c)
+    out = f"shacman-trucks-{c['slug']}.html"
+    with open(out, "w") as f:
+        f.write(html)
+    print(f"✅ {out}  ({len(html)} bytes)")
+
+print(f"\n=== Total: {len(COUNTRIES)} country pages built ===")
