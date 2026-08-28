@@ -3,18 +3,24 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Cache-Control: public, max-age=0, must-revalidate
-
-/assets/images/*
-  Cache-Control: public, max-age=31536000, immutable
+  Surrogate-Control: max-age=0
 
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
+  Surrogate-Control: max-age=0
 
 /shacman-trucks-*.html
   Cache-Control: public, max-age=0, must-revalidate
+  Surrogate-Control: max-age=0
 
 /assets/css/*
   Cache-Control: public, max-age=0, must-revalidate
+  Surrogate-Control: max-age=0
 
 /assets/js/*
   Cache-Control: public, max-age=0, must-revalidate
+  Surrogate-Control: max-age=0
+
+/assets/images/*
+  Cache-Control: public, max-age=31536000, immutable
+  Surrogate-Control: max-age=31536000
