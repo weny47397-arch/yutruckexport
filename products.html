@@ -58,10 +58,30 @@
 
 <section class="section">
     <div class="container">
+        <!-- Search Bar -->
+        <div style="background:#fff;border-radius:12px;padding:20px 24px;margin-bottom:32px;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid #e0e4e8">
+          <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+            <div style="flex:1;min-width:280px;position:relative">
+              <input type="search" id="truck-search" placeholder="Search by model (F3000, H3000, X3000...), axle (6×4, 8×4), or application (mining, tanker)..." 
+                style="width:100%;padding:14px 20px 14px 48px;border:2px solid #e0e4e8;border-radius:8px;font-size:15px;font-family:inherit;outline:none;transition:border-color .2s"
+                onfocus="this.style.borderColor='#c8102e'" onblur="this.style.borderColor='#e0e4e8'" />
+              <svg style="position:absolute;left:16px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:#888" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button type="button" data-filter="all" class="filter-btn active" style="padding:10px 18px;border:2px solid #c8102e;background:#c8102e;color:#fff;border-radius:6px;font-weight:600;font-size:13px;cursor:pointer">All Trucks</button>
+              <button type="button" data-filter="dump" class="filter-btn" style="padding:10px 18px;border:2px solid #e0e4e8;background:#fff;color:#1a1a2e;border-radius:6px;font-weight:600;font-size:13px;cursor:pointer">Dump / Tipper</button>
+              <button type="button" data-filter="tanker" class="filter-btn" style="padding:10px 18px;border:2px solid #e0e4e8;background:#fff;color:#1a1a2e;border-radius:6px;font-weight:600;font-size:13px;cursor:pointer">Tanker</button>
+              <button type="button" data-filter="cargo" class="filter-btn" style="padding:10px 18px;border:2px solid #e0e4e8;background:#fff;color:#1a1a2e;border-radius:6px;font-weight:600;font-size:13px;cursor:pointer">Cargo</button>
+              <button type="button" data-filter="tractor" class="filter-btn" style="padding:10px 18px;border:2px solid #e0e4e8;background:#fff;color:#1a1a2e;border-radius:6px;font-weight:600;font-size:13px;cursor:pointer">Tractor</button>
+            </div>
+          </div>
+          <div id="search-count" style="margin-top:12px;font-size:13px;color:#666">Showing all 4 truck series</div>
+        </div>
+
         <div class="series-grid">
 
             <!-- F Series -->
-            <a href="products/f-series.html" class="series-card series-f">
+            <a href="products/f-series.html" class="series-card series-f" data-search="f-series f3000 6x4 8x4 dump tipper mining quarry" data-category="dump">
                 <div class="image-wrap">
                     <span class="series-badge">DUMP / TIPPER</span>
                     <img src="assets/images/F系列产品册_p-03.webp" alt="F-series dump truck" loading="lazy">
@@ -77,7 +97,7 @@
             </a>
 
             <!-- H3000 -->
-            <a href="products/h3000.html" class="series-card series-h">
+            <a href="products/h3000.html" class="series-card series-h" data-search="h3000 6x4 8x4 tanker fuel water bowsers logistics bulk" data-category="tanker">
                 <div class="image-wrap">
                     <span class="series-badge">TANKER · LOGISTICS</span>
                     <img src="assets/images/H3000系列产品册_p-03.webp" alt="H3000 truck" loading="lazy">
@@ -93,7 +113,7 @@
             </a>
 
             <!-- L3000 -->
-            <a href="products/l3000.html" class="series-card series-l">
+            <a href="products/l3000.html" class="series-card series-l" data-search="l3000 4x2 6x2 cargo distribution urban regional" data-category="cargo">
                 <div class="image-wrap">
                     <span class="series-badge">CARGO · DISTRIBUTION</span>
                     <img src="assets/images/L3000产品册_p-3.webp" alt="L3000 truck" loading="lazy">
@@ -109,7 +129,7 @@
             </a>
 
             <!-- X3000 -->
-            <a href="products/x3000.html" class="series-card series-x">
+            <a href="products/x3000.html" class="series-card series-x" data-search="x3000 6x4 tractor flagship long-haul premium" data-category="tractor">
                 <div class="image-wrap">
                     <span class="series-badge">FLAGSHIP · TRACTOR</span>
                     <img src="assets/images/X3000册子_p-04.webp" alt="X3000 tractor" loading="lazy">
@@ -181,5 +201,68 @@
 <a href="https://wa.me/8619992988805?text=Hello%2C%20I%27m%20interested%20in%20SHACMAN%20trucks" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><span class="wa-icon">💬</span><span class="wa-label">Chat on WhatsApp</span></a>
 
 <script src="assets/js/main.js"></script>
+<script>
+(function() {
+  const searchInput = document.getElementById('truck-search');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.series-grid .series-card');
+  const countEl = document.getElementById('search-count');
+  if (!searchInput || !cards.length) return;
+
+  let activeFilter = 'all';
+
+  function applyFilter() {
+    const q = (searchInput.value || '').trim().toLowerCase();
+    let visible = 0;
+    cards.forEach(function(card) {
+      const haystack = (card.getAttribute('data-search') || '').toLowerCase();
+      const cat = card.getAttribute('data-category') || '';
+      const matchText = !q || haystack.indexOf(q) !== -1;
+      const matchCat = activeFilter === 'all' || cat === activeFilter;
+      const show = matchText && matchCat;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    if (countEl) {
+      countEl.textContent = visible === cards.length
+        ? 'Showing all ' + cards.length + ' truck series'
+        : 'Showing ' + visible + ' of ' + cards.length + ' truck series';
+    }
+  }
+
+  let timer;
+  searchInput.addEventListener('input', function() {
+    clearTimeout(timer);
+    timer = setTimeout(applyFilter, 120);
+  });
+
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(function(b) {
+        b.classList.remove('active');
+        b.style.background = '#fff';
+        b.style.color = '#1a1a2e';
+        b.style.borderColor = '#e0e4e8';
+      });
+      btn.classList.add('active');
+      btn.style.background = '#c8102e';
+      btn.style.color = '#fff';
+      btn.style.borderColor = '#c8102e';
+      activeFilter = btn.getAttribute('data-filter');
+      applyFilter();
+    });
+  });
+
+  // Auto-apply filter from URL parameter ?filter=dump
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlFilter = urlParams.get('filter');
+  if (urlFilter) {
+    const targetBtn = Array.from(filterBtns).find(function(b) {
+      return b.getAttribute('data-filter') === urlFilter;
+    });
+    if (targetBtn) targetBtn.click();
+  }
+})();
+</script>
 </body>
 </html>

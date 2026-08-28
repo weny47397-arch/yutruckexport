@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a2a4a"/>
+      <stop offset="50%" stop-color="#2c4870"/>
+      <stop offset="100%" stop-color="#457b9d"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1d3557"/>
+      <stop offset="100%" stop-color="#0d1b2a"/>
+    </linearGradient>
+    <linearGradient id="truckRed" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e63946"/>
+      <stop offset="100%" stop-color="#8b0000"/>
+    </linearGradient>
+    <linearGradient id="container1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c8102e"/>
+      <stop offset="100%" stop-color="#8b0000"/>
+    </linearGradient>
+    <linearGradient id="container2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1d3557"/>
+      <stop offset="100%" stop-color="#0d1b2a"/>
+    </linearGradient>
+    <linearGradient id="container3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2a9d8f"/>
+      <stop offset="100%" stop-color="#1d6f63"/>
+    </linearGradient>
+    <linearGradient id="container4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e9c46a"/>
+      <stop offset="100%" stop-color="#b08930"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky -->
+  <rect width="1920" height="600" fill="url(#sky)"/>
+  
+  <!-- Sun glow -->
+  <circle cx="1500" cy="180" r="80" fill="#ffe066" opacity="0.3"/>
+  <circle cx="1500" cy="180" r="40" fill="#fff7ad" opacity="0.5"/>
+  
+  <!-- Distant cranes silhouette -->
+  <g opacity="0.7">
+    <rect x="100" y="280" width="20" height="300" fill="#1a1a2e"/>
+    <rect x="100" y="280" width="200" height="8" fill="#1a1a2e"/>
+    <line x1="200" y1="280" x2="200" y2="240" stroke="#1a1a2e" stroke-width="3"/>
+    <rect x="180" y="220" width="40" height="20" fill="#1a1a2e"/>
+    
+    <rect x="1700" y="240" width="20" height="340" fill="#1a1a2e"/>
+    <rect x="1620" y="240" width="200" height="8" fill="#1a1a2e"/>
+    <line x1="1720" y1="240" x2="1720" y2="200" stroke="#1a1a2e" stroke-width="3"/>
+    <rect x="1700" y="180" width="40" height="20" fill="#1a1a2e"/>
+  </g>
+  
+  <!-- Water -->
+  <rect y="600" width="1920" height="200" fill="url(#water)"/>
+  
+  <!-- Water ripples -->
+  <g opacity="0.3">
+    <line x1="0" y1="650" x2="1920" y2="650" stroke="#fff" stroke-width="1"/>
+    <line x1="0" y1="700" x2="1920" y2="700" stroke="#fff" stroke-width="0.5"/>
+    <line x1="0" y1="750" x2="1920" y2="750" stroke="#fff" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Container ship -->
+  <rect x="100" y="540" width="900" height="180" fill="#1a1a2e"/>
+  <path d="M 100 720 L 80 740 L 1020 740 L 1000 720 Z" fill="#0d1117"/>
+  
+  <!-- Container stacks on ship -->
+  <g>
+    <!-- Row 1 (front) -->
+    <rect x="150" y="380" width="180" height="160" fill="url(#container1)"/>
+    <rect x="340" y="380" width="180" height="160" fill="url(#container2)"/>
+    <rect x="530" y="380" width="180" height="160" fill="url(#container3)"/>
+    <rect x="720" y="380" width="180" height="160" fill="url(#container4)"/>
+    
+    <!-- Row 2 (back, higher) -->
+    <rect x="220" y="240" width="180" height="140" fill="url(#container2)"/>
+    <rect x="410" y="240" width="180" height="140" fill="url(#container1)"/>
+    <rect x="600" y="240" width="180" height="140" fill="url(#container4)"/>
+  </g>
+  
+  <!-- Dock -->
+  <rect x="0" y="800" width="1920" height="280" fill="#3a3a3a"/>
+  
+  <!-- Dock shadow line -->
+  <rect x="0" y="800" width="1920" height="6" fill="#1a1a1a"/>
+  
+  <!-- SHACMAN truck on dock (large, foreground) -->
+  <g transform="translate(1100, 720)">
+    <!-- Cargo body -->
+    <rect x="180" y="40" width="280" height="100" rx="4" fill="url(#truckRed)" stroke="#000" stroke-width="2"/>
+    <!-- Cargo top highlight -->
+    <rect x="180" y="40" width="280" height="5" fill="#fff" opacity="0.2"/>
+    <!-- SHACMAN logo on truck -->
+    <text x="320" y="105" text-anchor="middle" font-family="Arial Black" font-size="28" font-weight="900" fill="#fff" letter-spacing="2">SHACMAN</text>
+    
+    <!-- Cab -->
+    <path d="M 20  140 L 20  40 L 80  40 L 130  40 L 140  90 L 180  90 L 180  140 Z" 
+          fill="url(#truckRed)" stroke="#000" stroke-width="2"/>
+    
+    <!-- Cab window -->
+    <path d="M 35  50 L 80  50 L 130  50 L 135  85 L 35  85 Z" 
+          fill="#a8dadc" stroke="#000" stroke-width="1.5"/>
+    <line x1="85" y1="50" x2="85" y2="85" stroke="#000" stroke-width="1.5"/>
+    
+    <!-- Front bumper -->
+    <rect x="20" y="125" width="30" height="15" fill="#0d1117"/>
+    
+    <!-- Headlight -->
+    <rect x="25" y="100" width="12" height="10" rx="2" fill="#ffe066"/>
+    
+    <!-- Chassis -->
+    <line x1="0" y1="140" x2="480" y2="140" stroke="#000" stroke-width="3"/>
+    
+    <!-- Wheels (6) -->
+    <circle cx="60" cy="155" r="22" fill="#1a1a1a" stroke="#000" stroke-width="2"/>
+    <circle cx="60" cy="155" r="10" fill="#444"/>
+    
+    <circle cx="180" cy="155" r="22" fill="#1a1a1a" stroke="#000" stroke-width="2"/>
+    <circle cx="180" cy="155" r="10" fill="#444"/>
+    
+    <circle cx="260" cy="155" r="22" fill="#1a1a1a" stroke="#000" stroke-width="2"/>
+    <circle cx="260" cy="155" r="10" fill="#444"/>
+    
+    <circle cx="340" cy="155" r="22" fill="#1a1a1a" stroke="#000" stroke-width="2"/>
+    <circle cx="340" cy="155" r="10" fill="#444"/>
+    
+    <circle cx="420" cy="155" r="22" fill="#1a1a1a" stroke="#000" stroke-width="2"/>
+    <circle cx="420" cy="155" r="10" fill="#444"/>
+    
+    <circle cx="460" cy="155" r="22" fill="#1a1a1a" stroke="#000" stroke-width="2"/>
+    <circle cx="460" cy="155" r="10" fill="#444"/>
+  </g>
+  
+  <!-- Foreground shadow -->
+  <ellipse cx="1300" cy="990" rx="280" ry="15" fill="#000" opacity="0.5"/>
+  
+  <!-- Brand text bottom right -->
+  <text x="1880" y="1040" text-anchor="end" font-family="Arial Black" font-size="22" font-weight="900" fill="#c8102e">SHACMAN</text>
+  <text x="1880" y="1065" text-anchor="end" font-family="Arial" font-size="12" fill="#fff" opacity="0.7">EXPORT TO AFRICA · 30+ COUNTRIES</text>
+</svg>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="floor" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4a4a4a"/>
+      <stop offset="100%" stop-color="#1a1a1a"/>
+    </linearGradient>
+    <linearGradient id="wall" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d4d4d4"/>
+      <stop offset="100%" stop-color="#888"/>
+    </linearGradient>
+    <linearGradient id="truckRow1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e63946"/>
+      <stop offset="100%" stop-color="#8b0000"/>
+    </linearGradient>
+    <linearGradient id="truckRow2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1d3557"/>
+      <stop offset="100%" stop-color="#0d1b2a"/>
+    </linearGradient>
+    <linearGradient id="window" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a8dadc"/>
+      <stop offset="100%" stop-color="#457b9d"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Ceiling lights (rows of factory lamps) -->
+  <g opacity="0.8">
+    <rect x="0" y="0" width="1920" height="80" fill="#0d1117"/>
+    <!-- Lamp rows -->
+    <g>
+      <circle cx="200" cy="40" r="20" fill="#fff" opacity="0.9"/>
+      <circle cx="200" cy="40" r="40" fill="#fff" opacity="0.2"/>
+      <circle cx="500" cy="40" r="20" fill="#fff" opacity="0.9"/>
+      <circle cx="500" cy="40" r="40" fill="#fff" opacity="0.2"/>
+      <circle cx="800" cy="40" r="20" fill="#fff" opacity="0.9"/>
+      <circle cx="800" cy="40" r="40" fill="#fff" opacity="0.2"/>
+      <circle cx="1100" cy="40" r="20" fill="#fff" opacity="0.9"/>
+      <circle cx="1100" cy="40" r="40" fill="#fff" opacity="0.2"/>
+      <circle cx="1400" cy="40" r="20" fill="#fff" opacity="0.9"/>
+      <circle cx="1400" cy="40" r="40" fill="#fff" opacity="0.2"/>
+      <circle cx="1700" cy="40" r="20" fill="#fff" opacity="0.9"/>
+      <circle cx="1700" cy="40" r="40" fill="#fff" opacity="0.2"/>
+    </g>
+  </g>
+  
+  <!-- Back wall (factory wall) -->
+  <rect x="0" y="80" width="1920" height="500" fill="url(#wall)"/>
+  
+  <!-- Wall stripes (industrial pattern) -->
+  <rect x="0" y="80" width="1920" height="8" fill="#c8102e"/>
+  <rect x="0" y="572" width="1920" height="8" fill="#c8102e"/>
+  
+  <!-- Windows in factory wall -->
+  <g>
+    <rect x="200" y="180" width="120" height="200" fill="url(#window)" stroke="#333" stroke-width="4"/>
+    <rect x="380" y="180" width="120" height="200" fill="url(#window)" stroke="#333" stroke-width="4"/>
+    <rect x="1420" y="180" width="120" height="200" fill="url(#window)" stroke="#333" stroke-width="4"/>
+    <rect x="1600" y="180" width="120" height="200" fill="url(#window)" stroke="#333" stroke-width="4"/>
+    
+    <!-- Window dividers -->
+    <line x1="320" y1="180" x2="320" y2="380" stroke="#333" stroke-width="2"/>
+    <line x1="500" y1="180" x2="500" y2="380" stroke="#333" stroke-width="2"/>
+    <line x1="1540" y1="180" x2="1540" y2="380" stroke="#333" stroke-width="2"/>
+    <line x1="1720" y1="180" x2="1720" y2="380" stroke="#333" stroke-width="2"/>
+  </g>
+  
+  <!-- Factory floor -->
+  <rect x="0" y="580" width="1920" height="500" fill="url(#floor)"/>
+  
+  <!-- Floor markings (yellow safety lines) -->
+  <line x1="0" y1="650" x2="1920" y2="650" stroke="#ffd60a" stroke-width="6" stroke-dasharray="40 20" opacity="0.7"/>
+  <line x1="0" y1="980" x2="1920" y2="980" stroke="#ffd60a" stroke-width="6" stroke-dasharray="40 20" opacity="0.7"/>
+  
+  <!-- SHACMAN truck lineup (3 trucks in row) -->
+  <g transform="translate(100, 700)">
+    <!-- Truck 1 (left) -->
+    <g>
+      <rect x="180" y="40" width="240" height="100" rx="4" fill="url(#truckRow1)" stroke="#000" stroke-width="2"/>
+      <path d="M 20 140 L 20 40 L 80 40 L 130 40 L 140 90 L 180 90 L 180 140 Z" 
+            fill="url(#truckRow1)" stroke="#000" stroke-width="2"/>
+      <path d="M 35 50 L 80 50 L 130 50 L 135 85 L 35 85 Z" fill="url(#window)"/>
+      <line x1="85" y1="50" x2="85" y2="85" stroke="#000" stroke-width="1.5"/>
+      <rect x="20" y="125" width="30" height="15" fill="#0d1117"/>
+      <rect x="25" y="100" width="12" height="10" rx="2" fill="#ffe066"/>
+      <line x1="0" y1="140" x2="420" y2="140" stroke="#000" stroke-width="3"/>
+      <circle cx="60" cy="155" r="20" fill="#1a1a1a"/>
+      <circle cx="180" cy="155" r="20" fill="#1a1a1a"/>
+      <circle cx="260" cy="155" r="20" fill="#1a1a1a"/>
+      <circle cx="340" cy="155" r="20" fill="#1a1a1a"/>
+      <circle cx="400" cy="155" r="20" fill="#1a1a1a"/>
+    </g>
+  </g>
+  
+  <!-- Truck 2 (center, blue) -->
+  <g transform="translate(680, 700)">
+    <g>
+      <rect x="180" y="40" width="240" height="100" rx="4" fill="url(#truckRow2)" stroke="#000" stroke-width="2"/>
+      <path d="M 20 140 L 20 40 L 80 40 L 130 40 L 140 90 L 180 90 L 180 140 Z" 
+            fill="url(#truckRow2)" stroke="#000" stroke-width="2"/>
+      <path d="M 35 50 L 80 50 L 130 50 L 135 85 L 35 85 Z" fill="url(#window)"/>
+      <line x1="85" y1="50" x2="85" y2="85" stroke="#000" stroke-width="1.5"/>
+      <rect x="20" y="125" width="30" height="15" fill="#0d1117"/>
+      <rect x="25" y="100" width="12" height="10" rx="2" fill="#ffe066"/>
+      <line x1="0" y1="140" x2="420" y2="140" stroke="#000" stroke-width="3"/>
+      <circle cx="60" cy="155" r="20" fill="#1a1a1a"/>
+      <circle cx="180" cy="155" r="20" fill="#1a1a1a"/>
+      <circle cx="260" cy="155" r="20" fill="#1a1a1a"/>
+      <circle cx="340" cy="155" r="20" fill="#1a1a1a"/>
+      <circle cx="400" cy="155" r="20" fill="#1a1a1a"/>
+    </g>
+  </g>
+  
+  <!-- Truck 3 (right, red) -->
+  <g transform="translate(1260, 700)">
+    <g>
+      <rect x="180" y="40" width="240" height="100" rx="4" fill="url(#truckRow1)" stroke="#000" stroke-width="2"/>
+      <path d="M 20 140 L 20 40 L 80 40 L 130 40 L 140 90 L 180 90 L 180 140 Z" 
+            fill="url(#truckRow1)" stroke="#000" stroke-width="2"/>
+      <path d="M 35 50 L 80 50 L 130 50 L 135 85 L 35 85 Z" fill="url(#window)"/>
+      <line x1="85" y1="50" x2="85" y2="85" stroke="#000" stroke-width="1.5"/>
+      <rect x="20" y="125" width="30" height="15" fill="#0d1117"/>
+      <rect x="25" y="100" width="12" height="10" rx="2" fill="#ffe066"/>
+      <line x1="0" y1="140" x2="420" y2="140" stroke="#000" stroke-width="3"/>
+      <circle cx="60" cy="155" r="20" fill="#1a1a1a"/>
+      <circle cx="180" cy="155" r="20" fill="#1a1a1a"/>
+      <circle cx="260" cy="155" r="20" fill="#1a1a1a"/>
+      <circle cx="340" cy="155" r="20" fill="#1a1a1a"/>
+      <circle cx="400" cy="155" r="20" fill="#1a1a1a"/>
+    </g>
+  </g>
+  
+  <!-- Brand text -->
+  <text x="60" y="1050" font-family="Arial Black" font-size="22" font-weight="900" fill="#c8102e">SHACMAN</text>
+  <text x="60" y="1070" font-family="Arial" font-size="11" fill="#fff" opacity="0.7">FACTORY · DIRECT · EXPORT</text>
+</svg>
