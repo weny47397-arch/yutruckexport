@@ -21,3 +21,5 @@ node_modules/
 
 # 原始 jpg 备份 (不部署)
 assets/images/gallery/_original/
+.wrangler/
+node_modules/

@@ -22,5 +22,9 @@
   Surrogate-Control: max-age=0
 
 /assets/images/*
-  Cache-Control: public, max-age=31536000, immutable
-  Surrogate-Control: max-age=31536000
+  Cache-Control: public, max-age=3600, must-revalidate
+  Surrogate-Control: max-age=3600
+
+/assets/images/yu/*
+  Cache-Control: public, max-age=0, must-revalidate
+  Surrogate-Control: max-age=0
