@@ -13,9 +13,19 @@
     if (navToggle && mainNav) {
         navToggle.addEventListener('click', () => {
             mainNav.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', String(mainNav.classList.contains('open')));
             navToggle.textContent = mainNav.classList.contains('open') ? '✕' : '☰';
         });
     }
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && mainNav && mainNav.classList.contains('open')) {
+            mainNav.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.textContent = '☰';
+            navToggle.focus();
+        }
+    });
 
     // ====================
     // Smooth scroll for anchor links
@@ -29,6 +39,7 @@
                 e.preventDefault();
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 if (mainNav) mainNav.classList.remove('open');
+                if (navToggle) { navToggle.setAttribute('aria-expanded', 'false'); navToggle.textContent = '☰'; }
             }
         });
     });
